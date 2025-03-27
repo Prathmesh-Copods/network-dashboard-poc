@@ -1,11 +1,9 @@
-import React from 'react';
+import { NetworkHeader } from "components/organisms/header";
 
-const NetworkDashboard: React.FC = () => {
-  return (
-    <div>
-      <h1>Network Dashboard</h1>
-    </div>
-  );
-};
+const NetworkDashboard = () => (
+  <>
+    <NetworkHeader />
+  </>
+);
 
 export default NetworkDashboard;

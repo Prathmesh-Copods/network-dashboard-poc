@@ -1,15 +1,9 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import { ServiceHeader } from 'components/organisms/header';
 
-const ServiceDashboard: React.FC = () => {
-  const { serviceId } = useParams<{ serviceId: string }>();
-
-  return (
-    <div>
-      <h1>Service Dashboard</h1>
-      <p>Details for Service ID: {serviceId}</p>
-    </div>
-  );
-};
+const ServiceDashboard = () => (
+  <>
+    <ServiceHeader />
+  </>
+);
 
 export default ServiceDashboard;
