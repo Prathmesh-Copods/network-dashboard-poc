@@ -1,0 +1,15 @@
+{
+  "short_name": "Network Dashboard",
+  "name": "Network Graph Dashboard POC for visualizing and checking network domains and services across the organization",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1E293B",
+  "background_color": "#1E293B"
+}
