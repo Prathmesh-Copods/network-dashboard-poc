@@ -1,7 +1,7 @@
 # Network Dashboard POC
 
 <p align='center'>
-  <img src='/favicon.svg' alt='Network Dashboard POC' width='200'/>
+  <img src='public/favicon.svg' alt='Network Dashboard POC' width='200'/>
 </p>
 
 <p align='center'>
