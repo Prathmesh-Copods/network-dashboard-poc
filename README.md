@@ -1,15 +1,11 @@
+# Network Dashboard POC
+
 <p align='center'>
-  <img src='https://i.imgur.com/KVmyXyo.png' alt='Vital - Vite Starter Template' width='600'/>
+  <img src='/favicon.svg' alt='Network Dashboard POC' width='200'/>
 </p>
 
 <p align='center'>
-Mocking up web app with <b>Vital</b><sup><em>(speed)</em></sup><br>
-</p>
-
-<br>
-
-<p align='center'>
-<a href="https://vital.josepvidal.dev">Live Demo</a>
+Visualizing network domains and services with <b>Network Dashboard</b><sup><em>(monitoring)</em></sup><br>
 </p>
 
 <br>
@@ -17,86 +13,84 @@ Mocking up web app with <b>Vital</b><sup><em>(speed)</em></sup><br>
 ## Features
 
 - ⚡️ [React 18](https://beta.reactjs.org/)
-- 🦾 TypeScript, of course
-- 🎨 [Tailwind](https://tailwindcss.com/) - next generation utility-first CSS
+- 🦾 TypeScript for type safety
+- 📊 [D3.js](https://d3js.org/) for advanced network visualizations
+- 🔄 [Redux](https://redux.js.org/) for state management
+- 🎨 [Tailwind](https://tailwindcss.com/) with Styled Components + SCSS
 - 👑 [Atomic Design organization](https://bradfrost.com/blog/post/atomic-web-design/)
-- 🗂 [Relative imports](https://github.com/vitejs/vite/issues/88#issuecomment-762415200)
-- 😃 [Hero icons](https://heroicons.com/)
-- ☁️ Deploy on Netlify, zero-config
+- 🗂 Relative imports for clean code organization
+- 😃 [Hero icons](https://heroicons.com/) for UI elements
+- 🔄 [JSON-Server](https://github.com/typicode/json-server) for mock API endpoints
 
-### Coding Style
+## Tech Stack
 
-- [ESLint](https://eslint.org/) - configured for React/Hooks & TypeScript
-- [Prettier](https://prettier.io/)
+The Network Dashboard POC is built using the following technologies:
 
-### Dev tools
+### Frontend
+- **Framework**: React.js with TypeScript
+- **Visualization Library**: D3.js for all network and chart visualizations
+- **State Management**: Redux for application state
+- **Styling**: 
+  - TailwindCSS for utility-first styling
+  - Styled Components with SCSS for component-specific styling
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [Netlify](https://www.netlify.com/) - zero-config deployment
+### Backend
+- **API Layer**: Mock API with static JSON data
+- **Data Format**: JSON for all data exchange
+- **Data Source**: Static JSON files representing domain and service data
+- **Mock Service**: JSON-Server for simulating API endpoints locally
 
-## Try it now!
+## Domain Architecture
 
-### GitHub Template
+The network is organized into logical domains to group related services and infrastructure:
 
-[Create a repo from this template on GitHub](https://github.com/jvidalv/vital/generate).
+- User Access Domain
+- Application Domain
+- Infrastructure Domain
+- Security Domain
+
+## Getting Started
 
 ### Clone to local
 
-If you prefer to do it manually with the cleaner git history
-
 ```bash
-npx degit jvidalv/vital my-vital-app
-cd my-vital-app
+git clone [repository-url] network-dashboard-poc
+cd network-dashboard-poc
 yarn # If you don't have yarn installed, run: npm install -g yarn
 ```
 
-## Checklist
-
-When you use this template, try follow the checklist to update your info properly
-
-- [ ] Rename `name` and `author` fields in `package.json`
-- [ ] Change the author name in `LICENSE`
-- [ ] Change the title in `index.html`
-- [ ] Change the favicon in `public`
-- [ ] Modify the manifest in `public`
-- [ ] Clean up the README's
-
-And, enjoy :)
-
-## Usage
-
 ### Development
 
-Just run and visit http://127.0.0.1:3000/
+Run the development server and mock API:
 
 ```bash
+# Start the development server
 yarn dev
+
+# In a separate terminal, start the mock API
+yarn mock-api
 ```
+
+Then visit http://localhost:3000/
 
 ### Build
 
-To build the App, run
+To build the App, run:
 
 ```bash
 yarn build
 ```
 
-And you will see the generated file in `dist` that ready to be served.
+And you will see the generated files in `dist` ready to be served.
 
-### Deploy on Netlify
+## Project Setup Checklist
 
-Go to [Netlify](https://app.netlify.com/start) and select your repository, `OK` along the way, and your App will be live in a minute.
-
-### Issues
-
-#### Husky
-
-If pre-commit hooks are not working be sure that you have installed husky: `husky install`.
-
-By default this command should be triggered after yarn/npm deps are installed.
-
-## Why
-
-I have created several React apps recently. Setting the configs up is kinda the bottleneck for me to make the ideas simply come true within a very short time.
-
-So I made this starter template for myself to create apps more easily, along with some good practices that I have learned from making those apps. Feel free to tweak it or even maintains your own forks.
+- [x] Setup React with TypeScript and Vite
+- [x] Configure Tailwind CSS and styling libraries
+- [x] Set up D3.js for visualizations
+- [x] Configure Redux for state management
+- [x] Setup mock API with JSON-Server
+- [ ] Implement domain visualization components
+- [ ] Create service monitoring dashboards
+- [ ] Build network traffic analysis views
+- [ ] Develop critical service monitoring widgets
