@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchNetworkHeaderData } from "../../../services/api";
-import { NetworkHeaderData } from "../../../types/networkDashboard";
+import { fetchNetworkHeaderData } from "services/api";
+import { NetworkHeaderData } from "types/networkDashboard";
 
 const NetworkHeader: React.FC = () => {
   const [headerData, setHeaderData] = useState<NetworkHeaderData | null>(null);

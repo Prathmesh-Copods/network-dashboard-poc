@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import NetworkDashboard from '../pages/NetworkDashboard';
-import ServiceDashboard from '../pages/ServiceDashboard';
+import NetworkDashboard from 'pages/NetworkDashboard';
+import ServiceDashboard from 'pages/ServiceDashboard';
 
 const AppRoutes: React.FC = () => {
   return (
