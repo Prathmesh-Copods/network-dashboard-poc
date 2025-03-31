@@ -1,93 +1,104 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchNetworkHeaderData } from "../../../services/api";
+import { NetworkHeaderData } from "../../../types/networkDashboard";
 
 const NetworkHeader: React.FC = () => {
-  const formattedDate = "22 MAY 2014 TUESDAY";
-  const timeDisplay = "09:05 HRS";
-  const timeRange = "1HR - 8:00 AM TO 9:00 AM";
-  const location = "CALIFORNIA";
-  const utcTime = "UTC 8:00";
+  const [headerData, setHeaderData] = useState<NetworkHeaderData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Domain data array for mapping
-  const domains = [
-    {
-      id: "I",
-      color: "#60deff",
-      name: "Domain Enterprise",
-      services: 120,
-      critical: 12
-    },
-    {
-      id: "II",
-      color: "#709145",
-      name: "Domain name text",
-      services: 430,
-      critical: 8
-    },
-    {
-      id: "III",
-      color: "#8a88ff",
-      name: "Domain 3",
-      services: 45,
-      critical: 32
-    },
-    {
-      id: "IV",
-      color: "#ff8fff",
-      name: "Domain 1",
-      services: 84,
-      critical: 16
+  const fetchData = async () => {
+    try {
+      const data = await fetchNetworkHeaderData();
+      setHeaderData(data);
+      setLoading(false);
+      setError(null);
+    } catch (err) {
+      console.error("Error fetching network header data:", err);
+      setError("Failed to fetch network data");
+      if (headerData) {
+        setLoading(false);
+      }
     }
-  ];
+  };
+
+  useEffect(() => {
+    // Initial fetch
+    fetchData();
+
+    const intervalId = setInterval(fetchData, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  if (loading && !headerData) {
+    return <div className="p-4 bg-black text-gray-400">Loading network data...</div>;
+  }
+
+  if (error && !headerData) {
+    return <div className="p-4 bg-black text-red-500">{error}</div>;
+  }
+
+  if (!headerData) {
+    return <div className="p-4 bg-black text-gray-400">No network data available</div>;
+  }
 
   return (
-    <header className="bg-[#27272e] text-white font-sans">
-      <div className="bg-[#282828] px-4 py-1.5 flex justify-between items-center text-xs border-b border-gray-700">
-        <div className="text-gray-400">{timeRange}</div>
-        <div className="text-lg font-semibold tracking-wider">{location}</div>
-        <div className="flex items-center space-x-4">
-          <span className="text-gray-400">{utcTime}</span>
-          <div className="flex items-center space-x-4">
-            <span className="text-gray-300">{timeDisplay}</span>
-            <span className="text-gray-300">{formattedDate}</span>
-          </div>
+    <header className="bg-black text-white w-full">
+      {/* Top row with time and location info */}
+      <div className="flex justify-between items-center px-6 py-2 border-b border-gray-800">
+        <div className="text-sm font-medium text-gray-300">{headerData.timeRange}</div>
+        <div className="text-xl font-bold tracking-wider">{headerData.location}</div>
+        <div className="flex items-center space-x-6">
+          <span className="text-sm font-medium text-gray-300">{headerData.utc}</span>
+          <span className="text-sm font-medium">
+            {headerData.currentTime}
+          </span>
+          <span className="text-sm font-medium">{headerData.date}</span>
         </div>
       </div>
 
-      <div className="flex justify-center gap-2 items-start p-4">
-        {domains.map((domain) => (
+      {/* Domain panels */}
+      <div className="grid grid-cols-4 gap-px">
+        {headerData.domains.map((domain) => (
           <div 
             key={domain.id} 
-            className="bg-[#2e2e35] p-3 flex items-start space-x-3 rounded-s-none"
+            className="bg-gray-800 flex items-center px-4 py-3"
           >
-            <div 
-              className="h-7 w-7 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 mt-1"
-              style={{ 
-                borderColor: domain.color, 
-                borderWidth: '2px',
-                color: domain.color
-              }}
-            >
-              {domain.id}
-            </div>
-            <div>
-              <h2 className="font-normal text-sm text-gray-200">
-                {domain.name}
-              </h2>
-              <div className="flex items-baseline mt-1 space-x-4">
-                <div className="flex items-baseline">
-                  <span className="text-2xl font-bold">{domain.services}</span>
-                  <span className="text-xs text-gray-400 ml-1">Services</span>
-                </div>
-                <div className="flex items-baseline">
-                  <span className="inline-block h-1.5 w-1.5 bg-[#f40030] mr-1.5"></span>
-                  <span className="text-lg font-bold">{domain.critical}</span>
-                  <span className="text-xs text-gray-400 ml-1">Critical</span>
+            <div className="flex items-center space-x-4">
+              <div className={`
+                w-10 h-10 rounded-full flex items-center justify-center text-lg font-semibold
+                ${domain.id === "I" ? "bg-blue-950 text-blue-400 border border-blue-600" : ""}
+                ${domain.id === "II" ? "bg-green-950 text-green-400 border border-green-600" : ""}
+                ${domain.id === "III" ? "bg-indigo-950 text-indigo-400 border border-indigo-600" : ""}
+                ${domain.id === "IV" ? "bg-purple-950 text-purple-400 border border-purple-600" : ""}
+              `}>
+                {domain.id}
+              </div>
+              <div>
+                <div className="text-gray-400 text-sm mb-1">{domain.name}</div>
+                <div className="flex items-center">
+                  <span className="text-3xl font-semibold mr-2">{domain.services}</span>
+                  <span className="text-gray-400 text-sm mr-4">Services</span>
+                  
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-red-600"></span>
+                    <span className="text-3xl font-semibold">{domain.critical}</span>
+                    <span className="text-gray-400 text-sm">Critical</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
+      
+      {/* Show error message if refresh fails but we have old data */}
+      {error && (
+        <div className="bg-red-900 bg-opacity-80 text-white text-sm py-1 px-3 absolute bottom-0 right-0">
+          {error}. Retrying...
+        </div>
+      )}
     </header>
   );
 };

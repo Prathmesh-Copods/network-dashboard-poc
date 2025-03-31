@@ -1,0 +1,184 @@
+{
+  "networkHeader": {
+    "location": "CALIFORNIA",
+    "timeRange": "1HR - 8:00 AM TO 9:00 AM",
+    "utc": "UTC 8:00",
+    "currentTime": "09:05 HRS",
+    "date": "22 MAY 2014 TUESDAY",
+    "timeOffset": 0,
+    "baseServices": {
+      "I": 120,
+      "II": 430,
+      "III": 45,
+      "IV": 84
+    },
+    "baseCritical": {
+      "I": 12,
+      "II": 8,
+      "III": 32,
+      "IV": 16
+    },
+    "domains": [
+      {
+        "id": "I",
+        "name": "Domain Enterprise",
+        "services": 120,
+        "critical": 12
+      },
+      {
+        "id": "II",
+        "name": "Domain name text",
+        "services": 430,
+        "critical": 8
+      },
+      {
+        "id": "III",
+        "name": "Domain 3",
+        "services": 45,
+        "critical": 32
+      },
+      {
+        "id": "IV",
+        "name": "Domain 1",
+        "services": 84,
+        "critical": 16
+      }
+    ]
+  },
+  "domains": [
+    {
+      "domain_id": "enterprise-1",
+      "domain_name": "Domain Enterprise",
+      "domain_type": "Application",
+      "location": "CALIFORNIA",
+      "total_services": 120,
+      "critical_services": 12,
+      "timestamp": 1400745600,
+      "id": "9c08"
+    },
+    {
+      "domain_id": "user-access-west",
+      "domain_name": "User Access West",
+      "domain_type": "User Access",
+      "location": "DENVER",
+      "total_services": 50,
+      "critical_services": 5,
+      "timestamp": 1678886400,
+      "id": "73b5"
+    },
+    {
+      "domain_id": "infra-core",
+      "domain_name": "Core Infrastructure",
+      "domain_type": "Infrastructure",
+      "location": "CENTRAL HUB",
+      "total_services": 200,
+      "critical_services": 25,
+      "timestamp": 1678886400,
+      "id": "b1be"
+    },
+    {
+      "domain_id": "security-services",
+      "domain_name": "Security Services",
+      "domain_type": "Security",
+      "location": "GLOBAL",
+      "total_services": 80,
+      "critical_services": 8,
+      "timestamp": 1678886400,
+      "id": "3598"
+    }
+  ],
+  "services": [
+    {
+      "service_id": "svc-web-prod-01",
+      "service_name": "Web Service Prod 01",
+      "domain_id": "enterprise-1",
+      "status": "Critical",
+      "importance_score": 0.75,
+      "criticality_score": 0.8,
+      "health_percentage": 85,
+      "resource_metric": 12.5,
+      "resource_unit": "K",
+      "alert_count": 34,
+      "critical_alert_count": 10,
+      "reliability_percentage": 98.5,
+      "timestamp": 1678886400,
+      "mos_score": 3.2,
+      "packet_loss": 2.1,
+      "traffic_streams": 15000,
+      "degradation_percentage": 15,
+      "application_type": "Data",
+      "vlan": "101",
+      "codec": null,
+      "id": "27dd"
+    },
+    {
+      "service_id": "svc-audio-conf-02",
+      "service_name": "Audio Conference Bridge",
+      "domain_id": "user-access-west",
+      "status": "Critical",
+      "importance_score": 0.9,
+      "criticality_score": 0.9,
+      "health_percentage": 92,
+      "resource_metric": 56.9,
+      "resource_unit": "% MoS",
+      "alert_count": 15,
+      "critical_alert_count": 5,
+      "reliability_percentage": 99.9,
+      "timestamp": 1678886400,
+      "mos_score": 56.9,
+      "packet_loss": 64.9,
+      "traffic_streams": 50000,
+      "degradation_percentage": 90,
+      "application_type": "Audio",
+      "vlan": "Unknown",
+      "codec": "G.729",
+      "id": "52e2"
+    },
+    {
+      "service_id": "svc-db-core-01",
+      "service_name": "Core Database Cluster",
+      "domain_id": "infra-core",
+      "status": "Normal",
+      "importance_score": 0.95,
+      "criticality_score": 0.98,
+      "health_percentage": 99.8,
+      "resource_metric": 80,
+      "resource_unit": "% CPU",
+      "alert_count": 2,
+      "critical_alert_count": 0,
+      "reliability_percentage": 99.99,
+      "timestamp": 1678886400,
+      "mos_score": null,
+      "packet_loss": 0.1,
+      "traffic_streams": 5000,
+      "degradation_percentage": 1,
+      "application_type": "Data",
+      "vlan": "200",
+      "codec": null,
+      "id": "1b4f"
+    },
+    {
+      "service_id": "svc-firewall-main",
+      "service_name": "Main Firewall Service",
+      "domain_id": "security-services",
+      "status": "Warning",
+      "importance_score": 0.88,
+      "criticality_score": 0.92,
+      "health_percentage": 97,
+      "resource_metric": 65,
+      "resource_unit": "% Conn",
+      "alert_count": 18,
+      "critical_alert_count": 2,
+      "reliability_percentage": 99.95,
+      "timestamp": 1678886400,
+      "mos_score": null,
+      "packet_loss": 0.5,
+      "traffic_streams": 100000,
+      "degradation_percentage": 5,
+      "application_type": "Security",
+      "vlan": "N/A",
+      "codec": null,
+      "id": "ad5c"
+    }
+  ]
+}

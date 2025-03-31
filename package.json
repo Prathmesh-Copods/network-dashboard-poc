@@ -28,7 +28,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "mock-api": "json-server mock-api/db.json --port 3001"
   },
   "dependencies": {
     "@heroicons/react": "2.1.5",
@@ -47,6 +48,7 @@
     "eslint": "9.13.0",
     "eslint-plugin-react-hooks": "5.0.0",
     "eslint-plugin-react-refresh": "0.4.14",
+    "json-server": "^1.0.0-beta.3",
     "lint-staged": "15.2.10",
     "postcss": "8.4.47",
     "prettier": "3.3.3",
