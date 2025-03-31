@@ -51,6 +51,13 @@ export interface ServiceData {
   codec: string | null;
   id: string;
 }
+export interface ServiceDataWithPosition extends ServiceData {
+  _angle?: number;
+  _radius?: number;
+  _x?: number;
+  _y?: number;
+  _quadrant?: string;
+}
 
 export interface Database {
   networkHeader: NetworkHeaderData;

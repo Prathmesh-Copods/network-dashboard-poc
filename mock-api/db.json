@@ -3,9 +3,9 @@
     "location": "CALIFORNIA",
     "timeRange": "1HR - 8:00 AM TO 9:00 AM",
     "utc": "UTC 8:00",
-    "currentTime": "09:05 HRS",
+    "currentTime": "09:40 HRS",
     "date": "22 MAY 2014 TUESDAY",
-    "timeOffset": 0,
+    "timeOffset": 35,
     "baseServices": {
       "I": 120,
       "II": 430,
@@ -22,25 +22,25 @@
       {
         "id": "I",
         "name": "Domain Enterprise",
-        "services": 120,
-        "critical": 12
+        "services": 122,
+        "critical": 9
       },
       {
         "id": "II",
         "name": "Domain name text",
-        "services": 430,
-        "critical": 8
+        "services": 424,
+        "critical": 12
       },
       {
         "id": "III",
         "name": "Domain 3",
-        "services": 45,
+        "services": 44,
         "critical": 32
       },
       {
         "id": "IV",
         "name": "Domain 1",
-        "services": 84,
+        "services": 93,
         "critical": 16
       }
     ]
