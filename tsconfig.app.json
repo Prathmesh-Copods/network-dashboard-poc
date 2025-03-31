@@ -25,7 +25,10 @@
     "paths": {
       "app/*": ["src/app/*"],
       "components/*": ["src/components/*"],
-      "hooks/*": ["src/hooks/*"]
+      "hooks/*": ["src/hooks/*"],
+      "services/*": ["src/services/*"],
+      "types/*": ["src/types/*"],
+      "pages/*": ["src/pages/*"],
     },
     "baseUrl": "./"
   },
